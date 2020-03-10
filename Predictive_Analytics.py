@@ -16,7 +16,18 @@ def SklearnSupervisedLearning(X_train,Y_train,X_test, Y_test):
     
         
     # confusion matrix - SVM
-    cm_svc = confusion_matrix(Y_test, y_pred_svc) 
+    cm_svc = confusion_matrix(Y_test, y_pred_svc)
+    labels = ["1","2","3","4","5","6","7","8","9","10","11"]
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    cax = ax.matshow(cm_svc)
+    plt.title('Confusion matrix of the classifier')
+    fig.colorbar(cax)
+    ax.set_xticklabels([''] + labels)
+    ax.set_yticklabels([''] + labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.show()
     
     
     # Training KNN
@@ -28,6 +39,17 @@ def SklearnSupervisedLearning(X_train,Y_train,X_test, Y_test):
     
     # Confusion Matrix - KNN
     cm_knn = confusion_matrix(y_test, y_pred_knn)
+    labels = ["1","2","3","4","5","6","7","8","9","10","11"]
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    cax = ax.matshow(cm_knn)
+    plt.title('Confusion matrix of the classifier')
+    fig.colorbar(cax)
+    ax.set_xticklabels([''] + labels)
+    ax.set_yticklabels([''] + labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.show()
     
     
     # Decision Tree
@@ -38,6 +60,17 @@ def SklearnSupervisedLearning(X_train,Y_train,X_test, Y_test):
     
     # Confusion Matrix - DTree
     cm_tree = confusion_matrix(y_test, y_pred_tree)
+    labels = ["A","B","C","D","E","F","G","H","I","J","K"]
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    cax = ax.matshow(cm_tree)
+    plt.title('Confusion matrix of the classifier')
+    fig.colorbar(cax)
+    ax.set_xticklabels([''] + labels)
+    ax.set_yticklabels([''] + labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.show()
     
     # Logistic Regression Model
     logclf = LogisticRegression(random_state = 0, penalty = 'l1', solver='saga', class_weight='balanced', multi_class='multinomial')
